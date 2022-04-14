@@ -14,6 +14,7 @@ public class Order {
         this.discoutprice = discoutprice;
     }
 
+    //계산 로직
     public int calculatePrice(){
         return itemPrice-discoutprice;
     }

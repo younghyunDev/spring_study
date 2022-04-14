@@ -19,6 +19,7 @@ public class ApplicationContextBasicFindTest {
         assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
+    /* 여러 타입일 경우에 문제가 될 수 있다.*/
     @Test
     @DisplayName("타입만으 조회")
     void findBeanByType(){
@@ -36,6 +37,8 @@ public class ApplicationContextBasicFindTest {
     @Test
     @DisplayName("빈 이름으로 조회 X")
     void findBeanByNameX(){
-        Assertions.assertThrows(NoSuchBeanDefinitionException.class,()->ac.getBean("xxxxx",MemberService.class));
+        //예외가 터져야 성공
+        Assertions.assertThrows(NoSuchBeanDefinitionException.class,
+                ()->ac.getBean("xxxxx",MemberService.class));
     }
 }

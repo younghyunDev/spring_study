@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
+    //spring container에 등록이 된다.
     @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(memberRepository());
@@ -24,7 +25,6 @@ public class AppConfig {
         return new OrderServiceImpl(
                 memberRepository(),
                 discountPolicy());
-
     }
 
     @Bean

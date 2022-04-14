@@ -8,9 +8,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class MemberApp {
     public static void main(String[] args) {
 
-       // AppConfig appConfig = new AppConfig();
+        //직접  찾아왔었따.
+        // AppConfig appConfig = new AppConfig();
         // MemberService memberService = appConfig.memberService();
 
+        //spring container,  스프링의 모든 컨테이너를 관린한다.
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         MemberService memberService=applicationContext.getBean("memberService",MemberService.class);
 
@@ -18,7 +20,6 @@ public class MemberApp {
         memberService.join(member);
         Member findMember = memberService.findMember(1L);
         System.out.println("new member = " + member.getName());
-
         System.out.println("find Member = " + findMember.getName());
     }
 }
